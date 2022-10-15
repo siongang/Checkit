@@ -3,48 +3,49 @@ let elem = '<div class= "checklist" id="last"><input type = "checkbox" name = "c
 
 let counter = 0;
 let checkArr = new Array(1).fill(false);
-
-
 let addMore = document.getElementById("add-button");
-console.log(addMore)
+let checkBoxes = document.getElementsByClassName("check");
+
+addListener();
 
 
-
-
+//if clicked addmore
 if (addMore) {
     console.log('hi')
     addMore.addEventListener("click", ()=> {
 
+        /*
+        Gets the last checklist element and sets to temp. Inserts elem after temp.
+        Sets temp id to counter
+        */ 
         document.getElementById('last').id = 'temp';
         document.getElementById('temp').insertAdjacentHTML('afterend', elem);
         document.getElementById('temp').id = counter;
 
-
+        // sets last-box id of check box to current counter
         document.getElementById('last-box').id = counter;
         counter++;
+
+        // set default val to false
         checkArr.push(false);
         addListener();
+
         console.log("button pressed");
 
     });  
 }
-let checkBoxes = document.getElementsByClassName("check");
-addListener();
+
+
 
 function addListener() {
-    
     console.log(checkBoxes);
     console.log(counter)
-    var box = checkBoxes.item(counter);
+    var box = checkBoxes.item(counter); //the newly added box
+
+    // assigns add event listener to each box. Changes boolean value of box for each click.
     checkBoxes.item(counter).addEventListener("click", ()=>{  
             console.log(box.id+"checkbox clicked");
-
-            /*
-            console.log(checkBoxes)
-            console.log('checked');
-            console.log("checkbox id is" + box.id)
             checkArr[box.id] = !checkArr[box.id]
             console.log(checkArr[box.id])
-            */
         });
 }

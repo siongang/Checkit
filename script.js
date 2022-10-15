@@ -23,7 +23,7 @@ if (addMore) {
         document.getElementById('temp').id = counter;
 
         // sets last-box id of check box to current counter
-        document.getElementById('last-box').id = counter;
+        document.getElementById('last-box').id = counter; //why does this not work?
         counter++;
 
         // set default val to false

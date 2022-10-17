@@ -1,5 +1,5 @@
 
-let elem = '<div class= "checklist" id="temp"><input type = "checkbox" name = "check" id = "temp-box" class = "check" value = "finished"><input type = "text" class = "text"></div>';
+let elem = '<div class= "checklist" id="temp"><input type = "checkbox" name = "check" id = "temp-box" class = "check btn" value = "finished"><input type = "text" class = "text">';
 
 let counter = 0; // index of boxes
 let checkArr = new Array(1).fill(false);
@@ -48,6 +48,12 @@ function addListener() {
         
         textArr[index] = textbox.value; // sets the index to the stringval of textbox
         checkArr[index] = !checked; //sets boolean val for index
-            
+        console.log(checkArr[index])
+
+        // strikes-through text
+        if (checkArr[index])
+            textbox.classList.add("strike-through");
+        else if (textbox.classList.contains("strike-through"))    
+            textbox.classList.remove("strike-through");
     });
 }

@@ -1,10 +1,11 @@
 *{
     border-color: rgb(34, 34, 34);
+
 }
 body {
-    font-family:'Courier New', Courier, monospace;
     background-color: #f8f8ff;
     box-sizing:border-box;
+    font-family:'Courier New', Courier, monospace;
 
     display: flex;
     flex-direction: column;
@@ -12,7 +13,9 @@ body {
     min-width: 300px;
 }
 
-#title {
+
+.strike-through {
+    text-decoration: line-through;
 }
 
 .envelope {
@@ -21,42 +24,82 @@ body {
     background: rgb(231, 231, 231);
     position: relative;
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     align-items: center;
     width: 40%;
     height: 70%;
-    min-width: 250px;
+    min-width: 400px;
+    padding:10px;
 
 }
 
 
 .checklist,.add-more {
-    margin-top: 10px;;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     padding: 10px 10px;
     
 }
 
+
 .checklist {
+    
+    background-color: rgb(231, 231, 231);
+    border-radius: 5px;
+    width: auto;
+
+}
+
+
+.text{
+    font-weight: 300;
+
+    background-color: rgb(231, 231, 231);
+    height: auto;
+    color: black;
+    outline: none;
+    border: none;
+    margin: 0 10px;
+}
+
+.add-button{
+    width: 55px;
+    font-size: 0.6em;
+    background-color: rgb(231, 231, 231);
+    border: 1.5px solid rgb(95, 95, 95);
+    border-color:rgb(151, 151, 151);
     border-radius: 5px;
 }
-.checklist.text{
-    height: auto;
-}
-
-.checklist:hover{
-    background-color:rgb(187, 185, 185)
-
-}
-
-.btn:hover{
-    background-color:rgb(151, 151, 151)
-} 
 
 input.check{
-    
     transform: scale(1.5);
-    margin-right: 10px;
+    margin: 0 10px;
+    accent-color: rgb(83, 83, 83);
 }
+
+
+
+.checklist:hover{
+    cursor:pointer;
+    transition-duration: 0.3s;
+    box-shadow: 0 8px 11px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color:rgb(143, 143, 143);
+}
+
+.checklist:hover .text{
+    transition-duration: 0.3s;
+    background-color:rgb(143, 143, 143);
+}
+
+
+
+.btn:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color:rgb(151, 151, 151);
+    border-color: rgb(85, 85, 85);
+}
+
 

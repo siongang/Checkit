@@ -1,51 +1,53 @@
 
-let elem = '<div class= "checklist" id="last"><input type = "checkbox" name = "check" id = "last-box" class = "check" value = "finished"><input type = "text" class = "text"></div>';
+let elem = '<div class= "checklist" id="temp"><input type = "checkbox" name = "check" id = "temp-box" class = "check" value = "finished"><input type = "text" class = "text"></div>';
 
-let counter = 0;
+let counter = 0; // index of boxes
 let checkArr = new Array(1).fill(false);
 let addMore = document.getElementById("add-button");
-let checkBoxes = document.getElementsByClassName("check");
-
+let checkBoxes = document.getElementsByClassName("check"); //creates an html collection of boxes
+let textArr = new Array(); //holds string values of textboxes
 addListener();
 
 
 //if clicked addmore
 if (addMore) {
-    console.log('hi')
     addMore.addEventListener("click", ()=> {
 
         /*
-        Gets the last checklist element and sets to temp. Inserts elem after temp.
-        Sets temp id to counter
+        Gets the previous checklist and inserts the temp checklist after it. 
+        Then, it swaps the temp id to the current counter
         */ 
-        document.getElementById('last').id = 'temp';
-        document.getElementById('temp').insertAdjacentHTML('afterend', elem);
-        document.getElementById('temp').id = counter;
+      
+        document.getElementById((counter)+"-checklist").insertAdjacentHTML('afterend', elem);
+        document.getElementById('temp').id = (counter+1)+"-checklist";
 
         // sets last-box id of check box to current counter
-        document.getElementById('last-box').id = counter; //why does this not work?
-        counter++;
+        document.getElementById('temp-box').id = (counter+1)+"-box"; 
 
         // set default val to false
         checkArr.push(false);
-        addListener();
-
+        textArr.push("");
+        counter++;
+        addListener(); 
+       
         console.log("button pressed");
-
     });  
 }
 
-
-
+// adds event listner to each checkbox. Everytime the checkbox is clicked, the string value is stored into the array
 function addListener() {
-    console.log(checkBoxes);
-    console.log(counter)
-    var box = checkBoxes.item(counter); //the newly added box
+    var box = checkBoxes.item(counter); //the newly added box, box was created in addmore event listener
 
     // assigns add event listener to each box. Changes boolean value of box for each click.
-    checkBoxes.item(counter).addEventListener("click", ()=>{  
-            console.log(box.id+"checkbox clicked");
-            checkArr[box.id] = !checkArr[box.id]
-            console.log(checkArr[box.id])
-        });
+    checkBoxes.item(counter).addEventListener("click", ()=>{
+
+        var index = box.id.substring(0,1); // current index of clicked checkbox
+        var checked = checkArr[index]; // boolean value if checkbox is checked     
+        var checklist = document.getElementById(index+"-checklist"); // getting the current checklist
+        var textbox = checklist.getElementsByClassName("text")[0]; // sets to the texbox of the current checklist
+        
+        textArr[index] = textbox.value; // sets the index to the stringval of textbox
+        checkArr[index] = !checked; //sets boolean val for index
+            
+    });
 }

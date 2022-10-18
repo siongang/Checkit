@@ -4,6 +4,7 @@ let elem = '<div class= "checklist" id="temp"><input type = "checkbox" name = "c
 let counter = 0; // index of boxes
 let checkArr = new Array(1).fill(false);
 let addMore = document.getElementById("add-button");
+let checklists = document.getElementsByClassName("checklist")
 let checkBoxes = document.getElementsByClassName("check"); //creates an html collection of boxes
 let textArr = new Array(); //holds string values of textboxes
 addListener();
@@ -36,6 +37,7 @@ if (addMore) {
 
 // adds event listner to each checkbox. Everytime the checkbox is clicked, the string value is stored into the array
 function addListener() {
+
     var box = checkBoxes.item(counter); //the newly added box, box was created in addmore event listener
 
     // assigns add event listener to each box. Changes boolean value of box for each click.
@@ -46,9 +48,12 @@ function addListener() {
         var checklist = document.getElementById(index+"-checklist"); // getting the current checklist
         var textbox = checklist.getElementsByClassName("text")[0]; // sets to the texbox of the current checklist
         
+
         textArr[index] = textbox.value; // sets the index to the stringval of textbox
         checkArr[index] = !checked; //sets boolean val for index
-        console.log(checkArr[index])
+        console.log(checkArr[index]);
+        console.log(textArr[index])
+
 
         // strikes-through text
         if (checkArr[index])
@@ -56,4 +61,13 @@ function addListener() {
         else if (textbox.classList.contains("strike-through"))    
             textbox.classList.remove("strike-through");
     });
+
+
+
+}
+
+function saveText(){
+
+
+
 }

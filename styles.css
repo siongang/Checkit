@@ -2,6 +2,11 @@
     border-color: rgb(34, 34, 34);
 
 }
+:root {
+    --envBg:rgb(231, 231, 231);
+
+}
+
 body {
     background-color: #f8f8ff;
     box-sizing:border-box;
@@ -11,30 +16,40 @@ body {
     flex-direction: column;
     align-items: center;
     min-width: 300px;
+  
+   
 }
 
-
+#title {
+    font-size: 3em;
+}
 
 
 .envelope {
     
     border: 1px solid rgb(95, 95, 95);
-    background: rgb(231, 231, 231);
+    background: var(--envBg);
     position: relative;
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
     align-items: left;
-    width: auto;
+    width: 800px;
     height: 70%;
     min-width: 400px;
     padding:10px;
 
 }
 
+.row {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    
+}
 
 .checklist,.add-more {
-    margin-top: 10px;
+   
     display: flex;
     align-items: center;
     padding: 10px 10px;
@@ -44,19 +59,26 @@ body {
 
 .checklist {
     
-    background-color: rgb(231, 231, 231);
+    background-color: var(--envBg);
     border-radius: 5px;
     width: 70%;
+    height: 40px;
 
 }
 
+.remove-button {
+    justify-content: center;
+    align-items: center;
+    background-color: var(--envBg);
+    margin: 0px 25px;
+}
 
 .text{
     font-weight: 300;
-
-    background-color: rgb(231, 231, 231);
-    height: auto;
-    width: 65%;
+    background-color: var(--envBg);
+    height: 80%;
+    width: 70%;
+    font-size: 1.3em;
     color: black;
     outline: none;
     border: none;
@@ -69,16 +91,17 @@ body {
 }
 
 .add-button{
-    width: 55px;
-    font-size: 0.6em;
-    background-color: rgb(231, 231, 231);
+    width: 70px;
+    height: 25px;
+    font-size: 0.7em;
+    background-color: var(--envBg);
     border: 1.5px solid rgb(95, 95, 95);
     border-color:rgb(151, 151, 151);
     border-radius: 5px;
 }
 
 input.check{
-    transform: scale(1.5);
+    transform: scale(2);
     margin: 0 10px;
     accent-color: rgb(83, 83, 83);
 }

@@ -66,12 +66,25 @@ body {
 
 }
 
+.open-button {
+    border-radius: 5px;
+    display: flex;
+    width: 25%;
+    height: 100%;
+}
+
 .remove-button {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--envBg);
     margin: 0px 25px;
+}
+
+.remove-button:hover {
+    background-color:rgb(151, 151, 151);
+
+    color: white;
 }
 
 .hide {
@@ -118,6 +131,11 @@ input.check{
     transition-duration: 0.3s;
     box-shadow: 0 8px 11px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     background-color:rgb(185, 185, 185);
+}
+
+.checklist-hover .open-button{
+    background-color: rgba(114, 114, 114, 0.1);
+
 }
 
 .text-hover{

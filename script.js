@@ -1,5 +1,4 @@
-
-let elem = '<div class = "row" > <div class= "checklist" ><input type = "checkbox" name = "check" class = "check btn" value = "finished"><input type = "text" class = "text"> </div> <button type = "button" class = "remove-button hide">x</button></div>';
+let elem = '<div class = "row" > <div class= "checklist" ><input type = "checkbox" name = "check" class = "check btn" value = "finished"><input type = "text" class = "text"> <div class = "open-button"></div></div> <button type = "button" class = "remove-button hide">x</button></div>';
 
 let counter = 0; // index of boxes
 let checkArr = new Array(1).fill(false); //boolean values of checkbox
@@ -66,7 +65,8 @@ function addListener() {
     });
 
 
-    currentRow.addEventListener("click",()=>{
+    var showButtons = currentRow.getElementsByClassName("open-button")[0];
+    showButtons.addEventListener("click",()=>{
         
         if (deleteRow.classList.contains("hide")){
             deleteRow.classList.remove("hide");
@@ -77,14 +77,12 @@ function addListener() {
 
     });
 
-   var rowIE = currentRow.getElementsByClassName("checklist")[0];
-   console.log(rowIE)
+   var rowHover = currentRow.getElementsByClassName("checklist")[0];
     currentRow.addEventListener("mouseover",()=>{
         var nodes = Array.prototype.slice.call( document.getElementById('env').children);
-        // console.log(nodes)
-         var index = nodes.indexOf(rowIE.parentElement);
-         var row = rows[index];
-    //   console.log("mouseover " + row.getElementsByClassName("checklist")[0])
+        var index = nodes.indexOf(rowHover.parentElement);
+        var row = rows[index];
+
         var checklist = row.getElementsByClassName("checklist")[0];
         var textbox = row.getElementsByClassName("text")[0];
 
@@ -100,21 +98,27 @@ function addListener() {
 
 
 
-    var rowI = currentRow.getElementsByClassName("checklist")[0];
+    var rowLeave = currentRow.getElementsByClassName("checklist")[0];
 
     currentRow.addEventListener("mouseleave",()=>{
         
         var nodes = Array.prototype.slice.call( document.getElementById('env').children);
-        var index = nodes.indexOf(rowI.parentElement);
+        var index = nodes.indexOf(rowLeave.parentElement);
         row = rows[index];
         var checklist = row.getElementsByClassName("checklist")[0];
         var textbox = row.getElementsByClassName("text")[0];
 
-
+        // styles the checklist
         if (checklist.classList.contains("checklist-hover"))
             checklist.classList.remove("checklist-hover");
         if (textbox.classList.contains("text-hover"))
             textbox.classList.remove("text-hover");
+
+        // deletes the delete button on mouse leave
+        var deleteRow = row.getElementsByClassName("remove-button")[0];
+        if (!deleteRow.classList.contains("hide"))
+            deleteRow.classList.add("hide");
+
     });
 
 

@@ -22,7 +22,7 @@ if (addMore) {
         */ 
         console.log(counter);
         if (counter == -1) {
-            document.getElementById("env").insertAdjacentHTML("afterbegin", elem);
+            document.getElementById("form").insertAdjacentHTML("afterbegin", elem);
         } else {
           //  counter = rows.length-1;
             rows[counter].insertAdjacentHTML('afterend', elem);
@@ -55,7 +55,7 @@ function addListener() {
 
     var deleteRow = currentRow.getElementsByClassName("remove-button")[0];
     deleteRow.addEventListener("click", () => {
-        var nodes = Array.prototype.slice.call( document.getElementById('env').children);
+        var nodes = Array.prototype.slice.call( document.getElementById('env').children[0].children);
         var index = nodes.indexOf(deleteRow.parentElement);
         var row = rows[index];
         row.remove();
@@ -79,7 +79,7 @@ function addListener() {
 
    var rowHover = currentRow.getElementsByClassName("checklist")[0];
     currentRow.addEventListener("mouseover",()=>{
-        var nodes = Array.prototype.slice.call( document.getElementById('env').children);
+        var nodes = Array.prototype.slice.call( document.getElementById('env').children[0].children);
         var index = nodes.indexOf(rowHover.parentElement);
         var row = rows[index];
 
@@ -102,7 +102,7 @@ function addListener() {
 
     currentRow.addEventListener("mouseleave",()=>{
         
-        var nodes = Array.prototype.slice.call( document.getElementById('env').children);
+        var nodes = Array.prototype.slice.call( document.getElementById('env').children[0].children);
         var index = nodes.indexOf(rowLeave.parentElement);
         row = rows[index];
         var checklist = row.getElementsByClassName("checklist")[0];
@@ -128,7 +128,7 @@ function addListener() {
     // assigns add event listener to each box. Changes boolean value of box for each click.
      box.addEventListener("click", ()=>{
 
-        var nodes = Array.prototype.slice.call( document.getElementById('env').children);
+        var nodes = Array.prototype.slice.call( document.getElementById('env').children[0].children);
         var index = nodes.indexOf(box.parentElement.parentElement);
         // console.log("parent " + (box.parentElement.parentElement.id));
 
@@ -156,10 +156,6 @@ function addListener() {
         else if (textbox.classList.contains("strike-through"))    
             textbox.classList.remove("strike-through");
     });
-
- 
-
-
   
 }
 

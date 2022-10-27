@@ -16,7 +16,7 @@
    
   
     <div class = "envelope" id = "env">
-        
+        <form action="/submit" method="POST" id = "form">
         <div class = "row" id = "0-row">
             <div class= "checklist" id = "0-checklist">
                 <input type = "checkbox" class = "check btn" id = "0-box" name = " check" value = "finished">
@@ -26,10 +26,14 @@
             
             <button type = "button" class = "remove-button hide btn">x</button>
         </div>
-        <section class = "add-more">   
+
+        <section class = "bottom-button">   
             <button type = "button" id = "add-button" class="add-button btn" >add row</button>
+            <button type = "submit" id = "submit-button" class = " add-button btn">save</button>
         </section>
 
+        
+    </form>
         
        
     </div>

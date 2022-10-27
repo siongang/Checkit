@@ -48,12 +48,17 @@ body {
     
 }
 
-.checklist,.add-more {
+.checklist,.bottom-button {
    
     display: flex;
     align-items: center;
     padding: 10px 10px;
     
+}
+
+#submit-button {
+    margin-left:15px
+
 }
 
 

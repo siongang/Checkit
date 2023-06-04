@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href = "styles.css" rel = "stylesheet" type = "text/css"/>
-    
-    <title>Document</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
 
-<body>
+    <title>Document</title>
+  </head>
+
+  <body>
     <header>
-        <h1 id = "title"> check it</h1>
+      <h1 id="title">check it</h1>
     </header>
-   
-  
-    <div class = "envelope" id = "env">
-        <form action="/submit" method="POST" id = "form">
-        <div class = "row" id = "0-row">
-            <div class= "checklist" id = "0-checklist">
-                <input type = "checkbox" class = "check btn" id = "0-box" name = " check" value = "finished">
-                <input type = "text" id = "textbox" class = "text" value = "add a task!">
-                <div class = "open-button"></div>
-            </div>
-            
-            <button type = "button" class = "remove-button hide btn">x</button>
+
+    <div class="envelope" id="env">
+      <form method="POST" id="form">
+        <div class="row" id="0-row">
+          <div class="checklist" id="0-checklist">
+            <input
+              type="checkbox"
+              class="check btn"
+              id="0-box"
+              name="check"
+              value="finished"
+            />
+            <input
+              type="text"
+              id="textbox"
+              class="text"
+              name="desc"
+              value="add a task!"
+            />
+            <div class="open-button"></div>
+          </div>
+
+          <button type="button" class="remove-button hide btn">x</button>
         </div>
 
-        <section class = "bottom-button">   
-            <button type = "button" id = "add-button" class="add-button btn" >add row</button>
-            <button type = "submit" id = "submit-button" class = " add-button btn">save</button>
+        <section class="bottom-button">
+          <button type="button" id="add-button" class="add-button btn">
+            add row
+          </button>
+          <button type="submit" id="submit-button" class="add-button btn">
+            save
+          </button>
         </section>
-
-        
-    </form>
-        
-       
+      </form>
     </div>
 
-   
-    <script src="script.js" ></script>
-    
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
